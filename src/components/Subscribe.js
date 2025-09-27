@@ -1,33 +1,58 @@
-"use client";
-
-import { useState } from "react";
-
 const Subscribe = () => {
-  const [btnText, setBtnText] = useState("Subscribe");
   return (
-    <section className="container mx-auto px-5 md:px-16">
-      <div className="bg-rose-600 rounded-lg text-white py-16 sm:py-24">
-        <div className="flex flex-col items-center gap-4 sm:gap-6 w-[90%] md:w-4/5 lg:w-1/2 text-center mx-auto">
-          <h2 className="text-2xl sm:text-4xl font-semibold">
-            Subscribe to our Blog
-          </h2>
-          <p className="leading-loose font-[500]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod
-            tempor incididunt labore dolore.
-          </p>
-          <div className="relative w-full">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className=" rounded-full bg-white px-3 py-4 text-center sm:text-left sm:p-6 border-none outline-none w-full font-[500] text-black"
-            />
-            <button
-              variant="outlined"
-              onClick={() => setBtnText("Submitting...")}
-              className="sm:w-fit w-full mt-2 sm:mt-0 capitalize sm:absolute sm:top-2 md:top-[.4rem] sm:right-2 md:text-base text-sm hover:border-2 border-2 border-transparent font-semibold py-4 px-7 text-white bg-rose-500 sm:bg-rose-600 hover:border-rose-600 hover:bg-rose-700 sm:hover:bg-rose-600 hover:shadow-2xl hover:shadow-rose-600  rounded-full"
-            >
-              {btnText}
-            </button>
+    <section className="container mx-auto px-5 md:px-16" id="contact">
+      <div className="rounded-lg text-white py-12 sm:py-16 md:py-24" style={{backgroundColor: '#02333d'}}>
+        <div className="flex flex-col items-center gap-6 sm:gap-8 w-[95%] sm:w-[90%] md:w-4/5 mx-auto">
+          <div className="text-center">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 px-2">
+              Why Choose Four Brothers General Trading?
+            </h2>
+            <p className="leading-relaxed sm:leading-loose font-[500] text-base sm:text-lg px-2">
+              Your trusted partner for reliable trading solutions and quality products.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full">
+            <div className="text-center px-4">
+              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">🏢</div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Established Business</h3>
+              <p className="text-sm sm:text-base leading-relaxed">
+                Years of experience in general trading with a proven track record of successful partnerships and reliable service delivery.
+              </p>
+            </div>
+            
+            <div className="text-center px-4">
+              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">🌍</div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Wide Network</h3>
+              <p className="text-sm sm:text-base leading-relaxed">
+                Extensive supplier and customer network spanning multiple industries and regions for comprehensive trading solutions.
+              </p>
+            </div>
+            
+            <div className="text-center px-4">
+              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">⚡</div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Fast & Reliable</h3>
+              <p className="text-sm sm:text-base leading-relaxed">
+                Quick response times, efficient logistics, and dependable delivery schedules to keep your business operations running smoothly.
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-white bg-opacity-20 rounded-lg p-4 sm:p-6 md:p-8 w-full text-center">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4">Ready to Partner With Us?</h3>
+            <p className="mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base px-2">
+              Contact us directly for business inquiries and partnership opportunities.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xl sm:text-2xl">📧</span>
+                <span className="font-mono text-sm sm:text-base md:text-lg break-all">info@fourbrothersgt.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl sm:text-2xl">📞</span>
+                <span className="font-mono text-sm sm:text-base md:text-lg">+1 (555) 123-4567</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

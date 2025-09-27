@@ -21,7 +21,7 @@ const ThemeProvider = ({ children }) => {
   return (
     <Theme attribute={"class"} enableSystem={false}>
       <NextNProgress
-        color="#e11d48"
+        color="#d4ba7d"
         startPosition={0.3}
         stopDelayMs={200}
         height={3}

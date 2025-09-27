@@ -1,20 +1,31 @@
+"use client";
+
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const CoreFeatures = () => {
+  const { theme } = useTheme();
+  
   return (
     <section className="container mx-auto px-4 md:px-16 flex flex-col lg:flex-row items-center lg:gap-20 gap-14">
       <div className="flex flex-col gap-2 flex-1">
-        <span className="text-rose-600 uppercase block font-semibold tracking-widest">
-          CORE FEATURES
+        <span className="uppercase block font-semibold tracking-widest" style={{color: '#d4ba7d'}}>
+          VISION
         </span>
         <h2 className=" capitalize text-3xl md:text-4xl xl:text-5xl font-bold my-3">
-          Smart Jackpots that you may love this anytime & anywhere
+        To become a leading importing and
+ wholesale company in Ethiopia,
+ 
         </h2>
         <p className="text-lg leading-loose">
-          Get your tests delivered at let home collect sample from the victory
-          of the managements that supplies best design system guidelines ever.
+        recognized for providing a wide
+ range of high-quality products and
+ exceptional service, while driving
+ sustainable growth and creating
+ value for our customers and
+ partners
         </p>
-        <button className="mt-5 w-fit md:text-base text-sm hover:border-2 border-2 border-transparent font-semibold py-3 px-8 md:px-10 text-white bg-rose-600 hover:border-rose-600 hover:bg-rose-600 hover:shadow-rose-600 hover:shadow-2xl rounded-full">
+        <button className={`mt-5 w-fit md:text-base text-sm hover:border-2 border-2 font-semibold py-3 px-8 md:px-10 rounded-full transition-all hover:shadow-2xl ${theme === 'dark' ? 'bg-[#d4ba7d] text-[#02333d] border-[#d4ba7d] hover:bg-transparent hover:text-[#d4ba7d]' : 'bg-[#d4ba7d] text-white border-[#d4ba7d] hover:bg-transparent hover:text-[#d4ba7d]'}`}>
           Explore
         </button>
       </div>

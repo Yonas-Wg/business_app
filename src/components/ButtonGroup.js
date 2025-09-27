@@ -5,14 +5,14 @@ const ButtonGroup = ({ next, previous }) => {
     <div className="flex items-center gap-2 mx-auto">
       <button
         aria-label="play_icon"
-        className="hover:text-rose-600 text-neutral-200 hover:bg-[#f3f3f3bc] rounded-full p-2"
+        className="text-neutral-200 hover:bg-[#d4ba7d20] rounded-full p-2 hover:text-[#d4ba7d]"
         onClick={previous}
       >
         <KeyboardBackspaceOutlinedIcon className="text-3xl " />
       </button>
       <button
         aria-label="play_icon"
-        className="hover:text-rose-600 text-neutral-200 rotate-180  hover:bg-[#f3f3f3bc] rounded-full p-2"
+        className="text-neutral-200 rotate-180 hover:bg-[#d4ba7d20] rounded-full p-2 hover:text-[#d4ba7d]"
         onClick={next}
       >
         <KeyboardBackspaceOutlinedIcon className="text-3xl " />

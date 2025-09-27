@@ -6,33 +6,27 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ButtonGroup from "./ButtonGroup";
 
-const Card = ({ star, title, imgSrc }) => {
+const Card = ({ star, title, imgSrc, description }) => {
   return (
-    <div className="mx-2 flex flex-col gap-4 select-none cursor-pointer border border-[#4e4e4e31] p-10 rounded-lg hover:shadow-xl transition-all">
-      <div className="text-rose-600">
-        <StarRoundedIcon />
-        <StarRoundedIcon />
-        <StarRoundedIcon />
-        <StarRoundedIcon />
+    <div className="mx-1 sm:mx-2 flex flex-col gap-3 sm:gap-4 select-none cursor-pointer border border-[#4e4e4e31] p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg hover:shadow-xl transition-all">
+      <div style={{color: '#d4ba7d'}} className="text-sm sm:text-base">
+        <StarRoundedIcon className="text-base sm:text-lg" />
+        <StarRoundedIcon className="text-base sm:text-lg" />
+        <StarRoundedIcon className="text-base sm:text-lg" />
+        <StarRoundedIcon className="text-base sm:text-lg" />
         {star}
       </div>
-      <h2 className="text-lg font-semibold mb-2">{title}</h2>
-      <p className="leading-loose">
-        Get working experience to work with this amazing team & in future want
-        to work together for bright future projects and also make deposit to
-        freelancer.
+      <h2 className="text-base sm:text-lg font-semibold mb-2">{title}</h2>
+      <p className="leading-relaxed sm:leading-loose text-sm sm:text-base">
+        {description}
       </p>
-      <div className="flex items-center gap-4 mt-5">
-        <Image src={imgSrc} width={50} height={50} alt="testimonials" />
+      <div className="flex items-center gap-3 sm:gap-4 mt-4 sm:mt-5">
+        <Image src={imgSrc} width={50} height={50} alt="testimonials" className="w-10 sm:w-12 h-10 sm:h-12 rounded-full" />
         <div>
-          <h3 className="font-semibold">Naseem Khan</h3>
-          <Link
-            href="https://github.com/NaseemKhan005"
-            target="_blank"
-            className="text-rose-600 font-[500]"
-          >
-            @naseemkhan
-          </Link>
+          <h3 className="font-semibold text-sm sm:text-base">Ahmed Hassan</h3>
+          <p className="font-[500] text-xs sm:text-sm" style={{color: '#d4ba7d'}}>
+            Business Owner
+          </p>
         </div>
       </div>
     </div>
@@ -42,7 +36,7 @@ const Card = ({ star, title, imgSrc }) => {
 const Testimonials = () => {
   return (
     <section
-      className="relative container mx-auto px-5 md:px-16 flex flex-col gap-5"
+      className="relative container mx-auto px-4 sm:px-5 md:px-16 flex flex-col gap-4 sm:gap-5 py-8 sm:py-12 md:py-16"
       id="testimonial"
     >
       <div>
@@ -53,28 +47,32 @@ const Testimonials = () => {
         <div>
           <Card
             star={<StarHalfRoundedIcon />}
-            title="Modern look & trending design"
+            title="Reliable Partner for Our Business"
             imgSrc="/testimonials/1.png"
+            description="Four Brothers General Trading has been a consistent and dependable supplier. Their timely deliveries and quality products have made a huge difference in keeping our business running smoothly."
           />
         </div>
         <div>
           <Card
-            title="Layout and organized layers"
+            title="Wide Product Range and Great Service"
             imgSrc="/testimonials/2.png"
+            description="The variety of products available through Four Brothers is impressive. From construction materials to office supplies, they have everything we need under one roof with excellent customer service."
           />
         </div>
         <div>
           <Card
             star={<StarRoundedIcon />}
-            title="Design Quality & performance"
+            title="Trustworthy and Professional"
             imgSrc="/testimonials/3.png"
+            description="Working with Four Brothers General Trading has been a pleasure. Their professional approach and commitment to quality has earned our trust and long-term partnership."
           />
         </div>
         <div>
           <Card
             star={<StarHalfRoundedIcon />}
-            title="Layout and organized layers"
+            title="Exceptional Service and Support"
             imgSrc="/testimonials/4.png"
+            description="The team at Four Brothers goes above and beyond to ensure customer satisfaction. Their organized approach and attention to detail makes every transaction smooth and efficient."
           />
         </div>
       </Carousel>

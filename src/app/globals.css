@@ -11,7 +11,8 @@ html {
 }
 
 .service-name {
-  @apply text-rose-600 uppercase block font-semibold text-sm tracking-widest;
+  color: #d4ba7d;
+  @apply uppercase block font-semibold text-sm tracking-widest;
 }
 
 .title {
@@ -23,7 +24,7 @@ html {
 }
 
 .team-card:hover :is(h2, p) {
-  color: #e11d48;
+  color: #d4ba7d;
 }
 
 .team-card:hover .icons {
@@ -32,7 +33,7 @@ html {
 }
 
 input::placeholder {
-  color: #e11d48;
+  color: #d4ba7d;
 }
 
 @keyframes playPluse {
@@ -56,4 +57,74 @@ input::placeholder {
 
 .scrollbar::-webkit-scrollbar {
   height: 0;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Better spacing for mobile */
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Custom animations for hero section */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-12deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(12deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
 }

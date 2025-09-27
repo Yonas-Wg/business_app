@@ -15,30 +15,30 @@ const QualityFeature = ({ imgSrc, title, desc }) => {
 const QualityFeatures = () => {
   return (
     <section className="container mx-auto px-5 md:px-16">
-      <span className="service-name text-center ">QUALITY FEATURES</span>
-      <h2 className="title text-center ">Amazing useful features</h2>
+      <span className="service-name text-center ">OUR GOALS</span>
+      <h1 className="title text-xl text-center "> Sustainable Growth and Excellence:
+ </h1>
 
       <div className="grid gap-x-10 gap-y-16 sm:grid-cols-2 mt-10 md:mt-20 lg:w-[88%] mx-auto">
         <QualityFeature
-          imgSrc="/features/1.svg"
-          title="Fast Performance"
-          desc="Let's just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world."
+          imgSrc="/features/expansion.svg"
+          title=" Market Expansion:"
+          desc=" Expand product
+ range and strengthen the company's
+ presence across Ethiopia and
+ eventually the East African region"
         />
         <QualityFeature
-          imgSrc="/features/2.svg"
-          title="Partnership deal"
-          desc="Let's just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world."
+          imgSrc="/features/efficiency.svg"
+          title=" Operational Efficiency: "
+          desc="Build robust
+ supply chains, streamline processes,
+ and improve overall business
+ management to maximize
+ productivity and profitability.
+"
         />
-        <QualityFeature
-          imgSrc="/features/3.svg"
-          title="Pro Subscription"
-          desc="Let's just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world."
-        />
-        <QualityFeature
-          imgSrc="/features/4.svg"
-          title="Customer Support"
-          desc="Let's just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world."
-        />
+       
       </div>
     </section>
   );
