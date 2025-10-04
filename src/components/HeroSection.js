@@ -100,29 +100,32 @@ const HeroSection = () => {
           <div className="before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-[url('/herobg1.svg')] before:bg-left-bottom before:bg-contain before:bg-no-repeat before:-z-50 after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-[url('/herobg2.svg')] after:bg-right after:bg-contain after:bg-no-repeat after:-z-50">
             
             {/* Floating cards around the image */}
-            <div className="absolute top-8 sm:top-10 left-2 sm:left-5 bg-white shadow-lg rounded-lg p-2 sm:p-3 transform -rotate-12 animate-float hidden sm:block">
+            <div className={`absolute top-8 sm:top-10 left-2 sm:left-5 shadow-lg rounded-lg p-2 sm:p-3 transform -rotate-12 animate-float hidden sm:block ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
               <div className="text-lg sm:text-2xl mb-1">📦</div>
               <div className="text-xs font-semibold">Import</div>
             </div>
             
-            <div className="absolute top-16 sm:top-20 right-2 sm:right-5 bg-white shadow-lg rounded-lg p-2 sm:p-3 transform rotate-12 animate-float-delayed hidden sm:block">
+            <div className={`absolute top-16 sm:top-20 right-2 sm:right-5 shadow-lg rounded-lg p-2 sm:p-3 transform rotate-12 animate-float-delayed hidden sm:block ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
               <div className="text-lg sm:text-2xl mb-1">🌍</div>
               <div className="text-xs font-semibold">Global</div>
             </div>
             
-            <div className="absolute bottom-8 sm:bottom-10 left-4 sm:left-10 bg-white shadow-lg rounded-lg p-2 sm:p-3 transform rotate-6 animate-float hidden sm:block">
+            <div className={`absolute bottom-8 sm:bottom-10 left-4 sm:left-10 shadow-lg rounded-lg p-2 sm:p-3 transform rotate-6 animate-float hidden sm:block ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
               <div className="text-lg sm:text-2xl mb-1">🤝</div>
               <div className="text-xs font-semibold">Trust</div>
             </div>
 
-            <Image
-              src={"/four.jpg"}
-              width={600}
-              height={500}
-              alt="Four Brothers General Trading"
-              className="object-contain mx-auto w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl h-auto transform hover:scale-105 transition-transform duration-500"
-              priority
-            />
+            <div className="relative group">
+              <Image
+                src={"/four.jpg"}
+                width={600}
+                height={500}
+                alt="Four Brothers General Trading"
+                className="object-contain mx-auto w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl h-auto transform hover:scale-75 transition-all duration-500 rounded-2xl shadow-2xl"
+                priority
+              />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#d4ba7d] to-[#02333d] opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"></div>
+            </div>
           </div>
         </div>
       </div>

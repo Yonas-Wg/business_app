@@ -1,12 +1,14 @@
 import Link from "next/link";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import StarHalfRoundedIcon from "@mui/icons-material/StarHalfRounded";
-import Image from "next/image";
+import PersonIcon from "@mui/icons-material/Person";
+import WomanIcon from "@mui/icons-material/Woman";
+import ManIcon from "@mui/icons-material/Man";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ButtonGroup from "./ButtonGroup";
 
-const Card = ({ star, title, imgSrc, description }) => {
+const Card = ({ star, title, icon, name, role, description }) => {
   return (
     <div className="mx-1 sm:mx-2 flex flex-col gap-3 sm:gap-4 select-none cursor-pointer border border-[#4e4e4e31] p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg hover:shadow-xl transition-all">
       <div style={{color: '#d4ba7d'}} className="text-sm sm:text-base">
@@ -21,11 +23,13 @@ const Card = ({ star, title, imgSrc, description }) => {
         {description}
       </p>
       <div className="flex items-center gap-3 sm:gap-4 mt-4 sm:mt-5">
-        <Image src={imgSrc} width={50} height={50} alt="testimonials" className="w-10 sm:w-12 h-10 sm:h-12 rounded-full" />
+        <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-[#d4ba7d] flex items-center justify-center">
+          {icon}
+        </div>
         <div>
-          <h3 className="font-semibold text-sm sm:text-base">Ahmed Hassan</h3>
+          <h3 className="font-semibold text-sm sm:text-base">{name}</h3>
           <p className="font-[500] text-xs sm:text-sm" style={{color: '#d4ba7d'}}>
-            Business Owner
+            {role}
           </p>
         </div>
       </div>
@@ -48,31 +52,39 @@ const Testimonials = () => {
           <Card
             star={<StarHalfRoundedIcon />}
             title="Reliable Partner for Our Business"
-            imgSrc="/testimonials/1.png"
-            description="Four Brothers General Trading has been a consistent and dependable supplier. Their timely deliveries and quality products have made a huge difference in keeping our business running smoothly."
+            icon={<ManIcon className="text-white text-lg sm:text-xl" />}
+            name="Abebe Tesfaye"
+            role="Construction Company Owner"
+            description="Four Brothers General Trading has been a consistent supplier. Their timely deliveries and quality products have made a huge difference in keeping our business running smoothly. We have been working with them for over two years and their reliability has never wavered."
           />
         </div>
         <div>
           <Card
             title="Wide Product Range and Great Service"
-            imgSrc="/testimonials/2.png"
-            description="The variety of products available through Four Brothers is impressive. From construction materials to office supplies, they have everything we need under one roof with excellent customer service."
+            icon={<WomanIcon className="text-white text-lg sm:text-xl" />}
+            name="Hirut Alemayehu"
+            role="Office Supplies Manager"
+            description="The variety of products available through Four Brothers is impressive. From construction materials to office supplies, they have everything we need under one roof with excellent customer service. Their customer support team is always available to help with any questions or concerns."
           />
         </div>
         <div>
           <Card
             star={<StarRoundedIcon />}
             title="Trustworthy and Professional"
-            imgSrc="/testimonials/3.png"
-            description="Working with Four Brothers General Trading has been a pleasure. Their professional approach and commitment to quality has earned our trust and long-term partnership."
+            icon={<ManIcon className="text-white text-lg sm:text-xl" />}
+            name="Dawit Mengistu"
+            role="Retail Business Owner"
+            description="Working with Four Brothers General Trading has been a pleasure. Their professional approach and commitment to quality has earned our trust and long-term partnership. They consistently deliver on their promises and have become an invaluable partner for our business operations."
           />
         </div>
         <div>
           <Card
             star={<StarHalfRoundedIcon />}
             title="Exceptional Service and Support"
-            imgSrc="/testimonials/4.png"
-            description="The team at Four Brothers goes above and beyond to ensure customer satisfaction. Their organized approach and attention to detail makes every transaction smooth and efficient."
+            icon={<WomanIcon className="text-white text-lg sm:text-xl" />}
+            name="Selamawit Gebre"
+            role="Import/Export Manager"
+            description="The team at Four Brothers goes above and beyond to ensure customer satisfaction. Their organized approach and attention to detail makes every transaction smooth and efficient. We have been working with them for over two years and their reliability has never wavered."
           />
         </div>
       </Carousel>

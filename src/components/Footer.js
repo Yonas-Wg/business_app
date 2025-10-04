@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="grid gap-8 lg:col-span-2 grid-cols-1 md:grid-cols-3">
+          <div className="grid gap-8 lg:col-span-2 grid-cols-1 md:grid-cols-4">
             <div>
               <p className="font-medium">Company</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm">
@@ -81,6 +81,21 @@ const Footer = () => {
                 >
                   Get in Touch
                 </Link>
+              </nav>
+            </div>
+            <div>
+              <p className="font-medium text-xs text-gray-500">Developer</p>
+              <nav className="flex flex-col mt-2 space-y-1 text-xs text-gray-400">
+                <a
+                  className="hover:opacity-75 cursor-pointer hover:border-b hover:border-neutral-400 w-fit"
+                >
+                  📧 yoniman.wg@gmail.com
+                </a>
+                <a
+                  className="hover:opacity-75 cursor-pointer hover:border-b hover:border-neutral-400 w-fit"
+                >
+                  📞 +251922711274
+                </a>
               </nav>
             </div>
           </div>

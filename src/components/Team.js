@@ -3,10 +3,28 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
-const TeamCard = ({ imgSrc, name, title }) => {
+const TeamCard = ({ imgSrc, name, title, isLeadership = false }) => {
+  const { theme } = useTheme();
+  
   return (
-    <div className="relative flex flex-col gap-2 sm:gap-3 md:hover:shadow-lg rounded-xl py-6 sm:py-8 md:py-10 team-card md:cursor-pointer px-4">
+    <div 
+      className="relative flex flex-col gap-2 sm:gap-3 md:hover:shadow-lg rounded-xl py-6 sm:py-8 md:py-10 team-card md:cursor-pointer px-4"
+      onMouseEnter={isLeadership ? (e) => {
+        const nameEl = e.currentTarget.querySelector('.team-name');
+        const titleEl = e.currentTarget.querySelector('.team-title');
+        const hoverColor = theme === 'dark' ? 'white' : 'black';
+        if (nameEl) nameEl.style.color = hoverColor;
+        if (titleEl) titleEl.style.color = hoverColor;
+      } : undefined}
+      onMouseLeave={isLeadership ? (e) => {
+        const nameEl = e.currentTarget.querySelector('.team-name');
+        const titleEl = e.currentTarget.querySelector('.team-title');
+        if (nameEl) nameEl.style.color = '#d4ba7d';
+        if (titleEl) titleEl.style.color = '#d4ba7d';
+      } : undefined}
+    >
       <Image
         src={imgSrc}
         width={130}
@@ -14,8 +32,18 @@ const TeamCard = ({ imgSrc, name, title }) => {
         alt="team member"
         className="drop-shadow-2xl w-16 sm:w-20 md:w-32 md:mb-5 mb-3 rounded-full border-2 mx-auto" style={{borderColor: '#d4ba7d'}}
       />
-      <h2 className="text-sm sm:text-base md:text-xl font-semibold text-center">{name}</h2>
-      <p className="text-center text-xs sm:text-sm md:text-base">{title}</p>
+      <h2 
+        className={`text-sm sm:text-base md:text-xl font-semibold text-center team-name ${isLeadership ? 'text-[#d4ba7d]' : ''}`}
+        style={isLeadership ? {color: '#d4ba7d'} : {}}
+      >
+        {name}
+      </h2>
+      <p 
+        className={`text-center text-xs sm:text-sm md:text-base team-title ${isLeadership ? 'text-[#d4ba7d]' : ''}`}
+        style={isLeadership ? {color: '#d4ba7d'} : {}}
+      >
+        {title}
+      </p>
       {/* <div className="flex md:flex-col gap-3 md:absolute md:bottom-12 md:right-8 md:translate-y-10 icons md:transition-all md:duration-500 md:opacity-0 mx-auto md:mx-0 md:text-rose-600">
         <Link
           target="_blank"
@@ -50,11 +78,13 @@ const Team = () => {
           imgSrc={"/team/men.png"}
           name="LUKAS ENYIEW "
           title="GENERAL MANAGER"
+          isLeadership={true}
         />
           <TeamCard
           imgSrc={"/team/men.png"}
           name=" ALEMAYEHU TSIGE"
           title="DEPUTY MANAGER"
+          isLeadership={true}
         />
       
         <TeamCard

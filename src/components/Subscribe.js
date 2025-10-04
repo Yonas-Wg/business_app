@@ -43,14 +43,18 @@ const Subscribe = () => {
             <p className="mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base px-2">
               Contact us directly for business inquiries and partnership opportunities.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="flex flex-col items-center justify-center gap-4 sm:gap-6">
               <div className="flex items-center gap-2">
                 <span className="text-xl sm:text-2xl">📧</span>
-                <span className="font-mono text-sm sm:text-base md:text-lg break-all">info@fourbrothersgt.com</span>
+                <span className="font-mono text-sm sm:text-base md:text-lg break-all">fourbrothersgt2025@gmail.com</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
                 <span className="text-xl sm:text-2xl">📞</span>
-                <span className="font-mono text-sm sm:text-base md:text-lg">+1 (555) 123-4567</span>
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                  <span className="font-mono text-sm sm:text-base md:text-lg">+251911317588</span>
+                  <span className="font-mono text-sm sm:text-base md:text-lg">+251908175695</span>
+                  <span className="font-mono text-sm sm:text-base md:text-lg">+251989395186</span>
+                </div>
               </div>
             </div>
           </div>

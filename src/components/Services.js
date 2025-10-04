@@ -27,16 +27,12 @@ const Services = () => {
       <div className="flex gap-6 sm:gap-8 md:gap-10 items-center flex-col-reverse lg:flex-row">
         <div className="relative w-full flex-1">
           <Image
-            src={"/videobanner.png"}
+            src={"/an.jpg"}
             width={500}
             height={500}
             alt="video banner"
             className="object-cover w-full rounded-lg"
           />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white px-3 sm:px-4 py-2 rounded-lg">
-            <p className="text-xs sm:text-sm font-semibold">Company Overview Video</p>
-            <p className="text-xs opacity-80">Coming Soon</p>
-          </div>
         </div>
         <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 flex-col flex-1">
           <div className="flex flex-col gap-3 sm:gap-4">

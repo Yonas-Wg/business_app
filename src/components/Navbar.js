@@ -94,9 +94,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4 md:gap-2 lg:gap-4">
-          <button className={`capitalize text-xs sm:text-sm md:text-base border-2 hover:border-2 font-semibold py-2 sm:py-3 px-2 sm:px-4 md:px-6 rounded-full transition-all ${theme === 'dark' ? 'text-white border-[#d4ba7d] hover:bg-[#d4ba7d] hover:text-[#02333d]' : 'text-[#02333d] border-[#d4ba7d] hover:bg-[#d4ba7d] hover:text-white'}`}>
-            <Link href={"#contact"}>Get Started</Link>
-          </button>
+          <Link href={"#contact"}>
+            <button className={`capitalize text-xs sm:text-sm md:text-base border-2 hover:border-2 font-semibold py-2 sm:py-3 px-2 sm:px-4 md:px-6 rounded-full transition-all ${theme === 'dark' ? 'text-white border-[#d4ba7d] hover:bg-[#d4ba7d] hover:text-[#02333d]' : 'text-[#02333d] border-[#d4ba7d] hover:bg-[#d4ba7d] hover:text-white'}`}>
+              Get Started
+            </button>
+          </Link>
           <button>
             {theme === "dark" ? (
               <LightModeRoundedIcon
