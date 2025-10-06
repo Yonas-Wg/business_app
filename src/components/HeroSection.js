@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 // Business categories images - matched with materials folder
 const images = [
@@ -49,7 +49,7 @@ const images = [
     title: "Sanitary Materials",
     description: "Hygiene and sanitary products"
   }
-];
+].filter(Boolean); 
 
 const HeroSection = () => {
   const { theme } = useTheme();
@@ -195,6 +195,7 @@ const HeroSection = () => {
                       height={500}
                       className="w-full h-full object-cover"
                       priority={index === 0}
+                      unoptimized={true}
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-[#d4ba7d] to-[#02333d] opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                   </div>
