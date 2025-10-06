@@ -3,11 +3,59 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+
+// Business categories images - matched with materials folder
+const images = [
+  {
+    src: "/materials/con_mat.jpg",
+    alt: "Construction Materials",
+    title: "Construction Materials",
+    description: "Quality building supplies and construction essentials"
+  },
+  {
+    src: "/materials/elec_mat.png", 
+    alt: "Electronics Materials",
+    title: "Electronics Materials",
+    description: "Modern electronic components and devices"
+  },
+  {
+    src: "/materials/kitchen.webp",
+    alt: "Kitchen Set Materials", 
+    title: "Kitchen Set Materials",
+    description: "Complete kitchen solutions and appliances"
+  },
+  {
+    src: "/materials/plastic.jpg",
+    alt: "Plastic Materials",
+    title: "Plastic Materials",
+    description: "Jerry cans, basins, buckets, and tires"
+  },
+  {
+    src: "/materials/textile.jpeg",
+    alt: "Textile Materials",
+    title: "Textile Materials", 
+    description: "Quality fabrics and textile products"
+  },
+  {
+    src: "/materials/stationary.jpg",
+    alt: "Stationary",
+    title: "Stationary",
+    description: "Office supplies and stationery items"
+  },
+  {
+    src: "/materials/sanity.jpg",
+    alt: "Sanitary Materials",
+    title: "Sanitary Materials",
+    description: "Hygiene and sanitary products"
+  }
+];
 
 const HeroSection = () => {
   const { theme } = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentImageSlide, setCurrentImageSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
   const highlights = [
     "Premium Quality Products",
@@ -22,6 +70,15 @@ const HeroSection = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (isAutoPlaying) {
+      const interval = setInterval(() => {
+        setCurrentImageSlide((prev) => (prev + 1) % images.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [isAutoPlaying]);
   
   return (
     <section
@@ -95,11 +152,11 @@ const HeroSection = () => {
       </div>
 
       <div className="w-full relative">
-        {/* Enhanced image container with floating elements */}
-        <div className="relative">
+        {/* Image Slider Container - Enhanced Width */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-[url('/herobg1.svg')] before:bg-left-bottom before:bg-contain before:bg-no-repeat before:-z-50 after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-[url('/herobg2.svg')] after:bg-right after:bg-contain after:bg-no-repeat after:-z-50">
             
-            {/* Floating cards around the image */}
+            {/* Floating cards around the slider */}
             <div className={`absolute top-8 sm:top-10 left-2 sm:left-5 shadow-lg rounded-lg p-2 sm:p-3 transform -rotate-12 animate-float hidden sm:block ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
               <div className="text-lg sm:text-2xl mb-1">📦</div>
               <div className="text-xs font-semibold">Import</div>
@@ -115,16 +172,100 @@ const HeroSection = () => {
               <div className="text-xs font-semibold">Trust</div>
             </div>
 
-            <div className="relative group">
-              <Image
-                src={"/four.jpg"}
-                width={600}
-                height={500}
-                alt="Four Brothers General Trading"
-                className="object-contain mx-auto w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl h-auto transform hover:scale-75 transition-all duration-500 rounded-2xl shadow-2xl"
-                priority
-              />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#d4ba7d] to-[#02333d] opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"></div>
+            {/* Enhanced Image Slider */}
+            <div 
+              className="relative group overflow-hidden rounded-3xl shadow-2xl border-2 border-white/20 backdrop-blur-sm"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              <div className="relative w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] xl:h-[36rem]">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                      index === currentImageSlide 
+                        ? 'opacity-100 scale-100' 
+                        : 'opacity-0 scale-95'
+                    }`}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={800}
+                      height={500}
+                      className="w-full h-full object-cover"
+                      priority={index === 0}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#d4ba7d] to-[#02333d] opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Enhanced Image Title Overlay - Mobile Optimized */}
+              <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4">
+                <div className="bg-gradient-to-r from-black/70 to-black/50 backdrop-blur-md rounded-lg sm:rounded-xl p-2 sm:p-4 md:p-5 text-white border border-white/20">
+                  <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 bg-gradient-to-r from-[#d4ba7d] to-white bg-clip-text text-transparent">
+                    {images[currentImageSlide].title}
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-200 leading-tight sm:leading-relaxed">
+                    {images[currentImageSlide].description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Enhanced Navigation Arrows */}
+              <button
+                onClick={() => setCurrentImageSlide((prev) => (prev - 1 + images.length) % images.length)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#d4ba7d]/80 to-[#02333d]/80 hover:from-[#d4ba7d] hover:to-[#02333d] text-white p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 shadow-lg border border-white/20 backdrop-blur-sm"
+                aria-label="Previous image"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <button
+                onClick={() => setCurrentImageSlide((prev) => (prev + 1) % images.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-[#d4ba7d]/80 to-[#02333d]/80 hover:from-[#d4ba7d] hover:to-[#02333d] text-white p-3 sm:p-4 rounded-full transition-all duration-300 hover:scale-110 shadow-lg border border-white/20 backdrop-blur-sm"
+                aria-label="Next image"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Enhanced Play/Pause Button */}
+              <button
+                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                className="absolute top-4 right-4 bg-gradient-to-r from-[#d4ba7d]/80 to-[#02333d]/80 hover:from-[#d4ba7d] hover:to-[#02333d] text-white p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg border border-white/20 backdrop-blur-sm"
+                aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+              >
+                {isAutoPlaying ? (
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                )}
+              </button>
+            </div>
+
+            {/* Enhanced Dots Indicator */}
+            <div className="flex justify-center mt-6 space-x-3">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageSlide(index)}
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 shadow-lg ${
+                    index === currentImageSlide 
+                      ? 'bg-gradient-to-r from-[#d4ba7d] to-[#02333d] scale-125 shadow-[#d4ba7d]/50' 
+                      : 'bg-gray-400 hover:bg-gray-600 hover:scale-110'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
